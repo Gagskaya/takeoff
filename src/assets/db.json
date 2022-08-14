@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "login": "222",
+      "password": "222",
+      "id": 1
+    },
+    {
+      "login": "123",
+      "password": "123",
+      "id": 2
+    }
+  ],
+  "contacts": [
+    {
+      "firstName": "gena",
+      "lastName": "bukin",
+      "phone": "79999999991",
+      "email": "test@test.ru",
+      "id": 1
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "phone": "79999999992",
+      "email": "test@test.ru",
+      "id": 2
+    },
+    {
+      "firstName": "test2",
+      "lastName": "test2",
+      "phone": "79999999993",
+      "email": "test2@test.ru",
+      "id": 3
+    }
+  ]
+}

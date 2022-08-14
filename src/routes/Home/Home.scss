@@ -1,0 +1,44 @@
+.home {
+  &__contacts {
+    &-title {
+      margin-bottom: 30px;
+      margin-top: 15px;
+      font-size: 26px;
+    }
+
+    &-cards {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &-card {
+      margin-right: 15px;
+      flex-basis: 32%;
+      margin-bottom: 30px;
+      position: relative;
+      &-edit , &-delete {
+        position: absolute;
+        svg {
+
+          opacity: 0.4;
+          cursor: pointer;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+      &-edit {
+        top: 17px;
+        right: 45px;
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      &-delete {
+        top: 15px;
+        right: 15px;
+      }
+    }
+  }
+}
