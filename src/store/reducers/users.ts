@@ -19,16 +19,13 @@ export const usersSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    fetchUsersIsLoading(state) {
-      state.isLoading = true;
+    fetchUsersIsLoading(state, action: PayloadAction<boolean>) {
+      state.isLoading = action.payload;
     },
     fetchUsersSuccess(state, action: PayloadAction<User[]>) {
-      state.isLoading = false;
-      state.error = "";
       state.users = action.payload;
     },
     fetchUsersError(state, action: PayloadAction<string>) {
-      state.isLoading = false;
       state.error = action.payload;
     },
     setUser(state, action: PayloadAction<User>) {

@@ -28,6 +28,18 @@ const Login = () => {
   const users = useSelector(selectUsers);
   const loggedInUser = localStorage.getItem("loggedInUser");
 
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (loggedInUser) {
+      navigate("/home");
+    } else {
+      navigate("/login");
+    }
+  }, [dispatch, loggedInUser, navigate]);
+
   const onLogin = () => {
     const user = users?.find(
       (user) => user.login === login && user.password === password
@@ -73,17 +85,11 @@ const Login = () => {
     }
   };
 
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (loggedInUser) {
-      navigate("/home");
-    } else {
-      navigate("/login");
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      onLogin();
     }
-  }, [dispatch, loggedInUser, navigate]);
+  };
 
   return (
     <div className="login">
@@ -98,6 +104,7 @@ const Login = () => {
               label="Логин"
               variant="standard"
               fullWidth
+              onKeyDown={onKeyDown}
               value={login}
               onChange={(
                 e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
@@ -110,6 +117,7 @@ const Login = () => {
               variant="standard"
               type="password"
               fullWidth
+              onKeyDown={onKeyDown}
               value={password}
               onChange={(
                 e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>

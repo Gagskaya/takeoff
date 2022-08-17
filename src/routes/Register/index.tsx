@@ -19,7 +19,6 @@ import { User } from "../../types/user";
 
 const Register = () => {
   const dispatch = useAppDispatch();
-
   const navigate = useNavigate();
 
   const users = useSelector(selectUsers);
@@ -28,6 +27,10 @@ const Register = () => {
   const [password, setPassword] = useState<string>("");
   const [loginError, setLoginError] = useState<boolean>();
   const [passwordError, setPasswordError] = useState<boolean>();
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   const onRegister = () => {
     if (!login && !password) {
@@ -70,9 +73,11 @@ const Register = () => {
     }
   };
 
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      onRegister();
+    }
+  };
 
   return (
     <div className="register">
@@ -87,6 +92,7 @@ const Register = () => {
               label="Логин"
               variant="standard"
               fullWidth
+              onKeyDown={onKeyDown}
               value={login}
               onChange={(
                 e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
@@ -99,6 +105,7 @@ const Register = () => {
               variant="standard"
               type="password"
               fullWidth
+              onKeyDown={onKeyDown}
               value={password}
               onChange={(
                 e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
