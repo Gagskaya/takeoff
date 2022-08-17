@@ -13,6 +13,7 @@ import Button from "@mui/material/Button";
 
 import "./Login.scss";
 import "react-toastify/dist/ReactToastify.css";
+import { setUser } from "../../store/reducers/users";
 
 const Login = () => {
   const dispatch = useAppDispatch();
@@ -54,6 +55,7 @@ const Login = () => {
       });
 
       localStorage.setItem("loggedInUser", JSON.stringify(user));
+      dispatch(setUser(user));
 
       setLogin("");
       setPassword("");
@@ -116,20 +118,17 @@ const Login = () => {
             />
           </div>
           <div className="login__form-buttons">
+            <Button fullWidth variant="outlined" onClick={onLogin}>
+              Войти
+            </Button>
+            <hr style={{ margin: "20px 0 15px 0" }} />
             <Button
               fullWidth
               variant="outlined"
               onClick={() => navigate("/register")}
+              color={"secondary"}
             >
               Зарегистрироваться
-            </Button>
-            <Button
-              fullWidth
-              variant="outlined"
-              onClick={onLogin}
-              style={{ marginLeft: 10 }}
-            >
-              Войти
             </Button>
             <ToastContainer />
           </div>

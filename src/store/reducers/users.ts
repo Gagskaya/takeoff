@@ -3,12 +3,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface UserState {
   users: User[];
+  user: User;
   isLoading: boolean;
   error: string;
 }
 
 const initialState: UserState = {
   users: [],
+  user: {} as User,
   isLoading: false,
   error: "",
 };
@@ -29,8 +31,8 @@ export const usersSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
-    setUsers(state, action: PayloadAction<User[]>) {
-      state.users = action.payload;
+    setUser(state, action: PayloadAction<User>) {
+      state.user = action.payload;
     },
   },
 });
@@ -39,7 +41,7 @@ export const {
   fetchUsersIsLoading,
   fetchUsersSuccess,
   fetchUsersError,
-  setUsers,
+  setUser,
 } = usersSlice.actions;
 
 export const userReducer = usersSlice.reducer;

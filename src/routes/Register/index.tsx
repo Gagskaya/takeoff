@@ -107,21 +107,20 @@ const Register = () => {
             />
           </div>
           <div className="register__form-buttons">
+            <Button variant="outlined" onClick={onRegister} fullWidth>
+              Зарегистрироваться
+            </Button>
+            <hr style={{ margin: "20px 0 15px 0" }} />
+
             <Button
               variant="outlined"
               onClick={() => navigate("/login")}
               fullWidth
+              color={"secondary"}
             >
               Войти
             </Button>
-            <Button
-              variant="outlined"
-              style={{ marginLeft: 10 }}
-              onClick={onRegister}
-              fullWidth
-            >
-              Зарегистрироваться
-            </Button>
+
             <ToastContainer />
           </div>
         </div>
