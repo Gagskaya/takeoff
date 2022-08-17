@@ -63,12 +63,6 @@ export const contactsSlice = createSlice({
         (contact) => contact.id !== action.payload
       );
     },
-    filterContacts(state, action: PayloadAction<string>) {
-      state.contacts = state.contacts.filter(
-        (contact) =>
-          contact.firstName.toLowerCase().indexOf(action.payload) >= 0
-      );
-    },
     setContactsFilterValue(state, action: PayloadAction<string>) {
       state.filterValue = action.payload;
     },
@@ -103,7 +97,7 @@ export const {
   addContact,
   editContact,
   deleteContact,
-  filterContacts,
+
   setContactsFilterValue,
   toggleIsContactEditing,
   toggleAddContactModal,

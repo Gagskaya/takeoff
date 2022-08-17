@@ -1,21 +1,19 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
-import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
-
-import { selectUsers } from "../../store/selectors/users";
-
-import { fetchUsers } from "../../store/actionCreators/users";
 import { useAppDispatch } from "../../hooks/store";
+import { toast, ToastContainer } from "react-toastify";
+import axios from "axios";
+
+import { User } from "../../types/user";
+import { selectUsers } from "../../store/selectors/users";
+import { fetchUsers } from "../../store/actionCreators/users";
 
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-import "./Register.scss";
 import "react-toastify/dist/ReactToastify.css";
-import { User } from "../../types/user";
+import "./Register.scss";
 
 const Register = () => {
   const dispatch = useAppDispatch();
@@ -49,6 +47,7 @@ const Register = () => {
 
       return;
     }
+
     const userExists = users?.find((user) => user.login === login);
     if (userExists) {
       toast.error("Пользователь с таким логином уже существует", {

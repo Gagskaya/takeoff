@@ -22,7 +22,6 @@ import {
   selectContactFirstName,
   selectContactLastName,
   selectContactPhone,
-  selectContacts,
   selectContactsFilterValue,
   selectContactsIsLoading,
   selectEditingContactId,
@@ -40,7 +39,6 @@ import {
   setEditingContactId,
   toggleIsContactEditing,
   toggleAddContactModal,
-  filterContacts,
   setContactsFilterValue,
 } from "../../store/reducers/contacts";
 
@@ -177,6 +175,7 @@ const Home = () => {
     localStorage.removeItem("loggedInUser");
     navigate("/login");
   };
+
   return (
     <div className="home">
       <div className="home__contacts">

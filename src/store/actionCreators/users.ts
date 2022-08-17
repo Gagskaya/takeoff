@@ -1,13 +1,14 @@
 import axios from "axios";
 import { AppDispatch } from "../index";
 
+import { User } from "../../types/user";
+import { API_URL } from "../../constants/apiUrl";
+
 import {
   fetchUsersIsLoading,
   fetchUsersSuccess,
   fetchUsersError,
 } from "../reducers/users";
-import { User } from "../../types/user";
-import { API_URL } from "../../constants/apiUrl";
 
 export const fetchUsers = () => async (dispatch: AppDispatch) => {
   try {

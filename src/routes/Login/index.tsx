@@ -7,13 +7,13 @@ import { toast, ToastContainer } from "react-toastify";
 import { useAppDispatch } from "../../hooks/store";
 import { selectUsers } from "../../store/selectors/users";
 import { fetchUsers } from "../../store/actionCreators/users";
+import { setUser } from "../../store/reducers/users";
 
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-import "./Login.scss";
 import "react-toastify/dist/ReactToastify.css";
-import { setUser } from "../../store/reducers/users";
+import "./Login.scss";
 
 const Login = () => {
   const dispatch = useAppDispatch();

@@ -1,6 +1,5 @@
 import { RootState } from "../index";
 import { createSelector } from "reselect";
-import { Contact } from "../../types/contact";
 
 export const selectContacts = ({ contactsReducer }: RootState) =>
   contactsReducer.contacts;

@@ -1,6 +1,9 @@
 import axios from "axios";
 import { AppDispatch } from "../index";
 
+import { Contact } from "../../types/contact";
+import { API_URL } from "../../constants/apiUrl";
+
 import {
   fetchContactsSuccess,
   fetchContactsError,
@@ -9,9 +12,6 @@ import {
   editContact,
   deleteContact,
 } from "../reducers/contacts";
-
-import { Contact } from "../../types/contact";
-import { API_URL } from "../../constants/apiUrl";
 
 export const fetchContacts =
   (userId: number) => async (dispatch: AppDispatch) => {
